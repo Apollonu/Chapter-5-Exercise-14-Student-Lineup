@@ -1,5 +1,10 @@
-// ConsoleApplication1.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+/*  Project Name: Chapter 5 Exercise 14 - Student Lineup
+    File Name: ConsoleApplication1.cpp
+    Programmer: Harrison Hudgins
+    Date: November 14, 2024
+    Requirements:
+    Write a program that displays students in order 1-25
+*/
 
 #include <iostream>
 #include <algorithm>
