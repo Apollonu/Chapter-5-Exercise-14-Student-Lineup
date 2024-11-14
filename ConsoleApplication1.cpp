@@ -1,13 +1,14 @@
-/*  Project Name: Chapter 5 Exercise 14 - Student Lineup
+/*  Project Name: Chapter 5 Exercise 25 - Student Lineup
     File Name: ConsoleApplication1.cpp
     Programmer: Harrison Hudgins
     Date: November 14, 2024
     Requirements:
-    Write a program that displays students in order 1-25
+    Make a branch based off of the previous code and make it read from a file
 */
 
 #include <iostream>
 #include <algorithm>
+#include <fstream>
 using namespace std;
 
 
@@ -32,13 +33,27 @@ int main()
     }
 
     cout << endl;
-    cout << "The list of students is followed below:\n";
 
     int startingPoint = 25 - studentAmount;
     int size = sizeof(studentTable) / sizeof(studentTable[0]);
     sort(studentTable, studentTable + size);
 
+    string filePath;
+    cout << "Please enter the file path of LineUp.txt\n";
+    cin >> filePath;
+
+    ofstream outfile(filePath);
+
     for (int interStudent = startingPoint; interStudent < size; interStudent++) {
-        cout << studentTable[interStudent] << endl;
+        outfile << studentTable[interStudent] << endl;
     }
+    outfile.close();
+
+    ifstream inFile(filePath);
+    string name;
+    for (int interStudent = 0; interStudent < studentAmount; interStudent++) {
+        inFile >> name;
+        cout << name << endl;
+    }
+    inFile.close();
 }
